@@ -14,27 +14,33 @@
             background-color: #000; 
             scroll-behavior: smooth; 
             overflow-x: hidden;
+            position: relative;
         }
 
         .border-text { -webkit-text-stroke: 1px white; color: transparent; }
 
-        /* Effet de faisceau blanc en arrière-plan */
-        .faisceau {
+        /* Effet de lueur blanche prononcée en arrière-plan */
+        .faisceau-lumineux {
             position: fixed;
-            top: -10%;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: 0;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1; /* Derrière le contenu */
             pointer-events: none;
+            filter: blur(80px); /* Adoucit les bords */
         }
+        
+        /* Correction pour assurer la lisibilité sur le faisceau */
+        section { position: relative; z-index: 10; }
+        nav { z-index: 100; }
     </style>
 </head>
 <body class="text-white selection:bg-zinc-700">
 
-    <div class="faisceau"></div>
+    <div class="faisceau-lumineux"></div>
 
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -85,7 +91,7 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 px-6 relative z-10">
+    <section id="portfolio" class="py-24 px-6 relative z-10 bg-black/40">
         <div class="max-w-7xl mx-auto mb-16">
             <p class="text-zinc-500 uppercase text-[10px] tracking-[0.5em] font-bold mb-2 text-center md:text-left">Dernières captures</p>
             <h2 class="text-4xl md:text-5xl font-black uppercase italic text-center md:text-left">Portfolio</h2>
@@ -120,7 +126,7 @@
         </div>
     </section>
 
-    <section id="gear" class="py-32 bg-zinc-950 border-y border-zinc-900 relative z-10">
+    <section id="gear" class="py-32 bg-zinc-950/80 border-y border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="max-w-3xl space-y-6">
                 <div class="flex items-center gap-2 text-zinc-400 uppercase tracking-widest text-[10px] font-bold">
@@ -135,7 +141,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 relative z-10">
+    <section id="contact" class="py-24 px-6 relative z-10 bg-black/40">
         <div class="max-w-5xl mx-auto bg-zinc-900 border border-zinc-800 p-8 md:p-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 
