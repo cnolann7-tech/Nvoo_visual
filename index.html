@@ -14,33 +14,27 @@
             background-color: #000; 
             scroll-behavior: smooth; 
             overflow-x: hidden;
-            position: relative;
         }
 
         .border-text { -webkit-text-stroke: 1px white; color: transparent; }
 
-        /* Effet de lueur blanche prononcée en arrière-plan */
-        .faisceau-lumineux {
+        /* Effet de faisceau blanc (glow) en arrière-plan */
+        .faisceau-background {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80vw;
-            height: 80vh;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: -1; /* Derrière le contenu */
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
             pointer-events: none;
-            filter: blur(80px); /* Adoucit les bords */
         }
-        
-        /* Correction pour assurer la lisibilité sur le faisceau */
-        section { position: relative; z-index: 10; }
-        nav { z-index: 100; }
     </style>
 </head>
 <body class="text-white selection:bg-zinc-700">
 
-    <div class="faisceau-lumineux"></div>
+    <div class="faisceau-background"></div>
 
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -91,72 +85,65 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 px-6 relative z-10 bg-black/40">
+    <section id="portfolio" class="py-24 px-6 bg-black/40 relative z-10">
         <div class="max-w-7xl mx-auto mb-16">
-            <p class="text-zinc-500 uppercase text-[10px] tracking-[0.5em] font-bold mb-2 text-center md:text-left">Dernières captures</p>
-            <h2 class="text-4xl md:text-5xl font-black uppercase italic text-center md:text-left">Portfolio</h2>
-            <div class="w-20 h-2 bg-white mt-4 mx-auto md:mx-0"></div>
+            <h2 class="text-4xl font-black uppercase italic">Portfolio</h2>
+            <div class="w-20 h-1 bg-white mt-4"></div>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto">
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image2.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image3.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image4.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image4.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image5.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image6.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image7.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
             <div class="aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden group">
-                <img src="image8.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 group-hover:scale-110">
+                <img src="image8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             </div>
         </div>
     </section>
 
-    <section id="gear" class="py-32 bg-zinc-950/80 border-y border-zinc-900 relative z-10">
+    <section id="gear" class="py-24 bg-zinc-950/80 border-y border-zinc-900 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="max-w-3xl space-y-6">
                 <div class="flex items-center gap-2 text-zinc-400 uppercase tracking-widest text-[10px] font-bold">
                     <i data-lucide="camera" class="size-4"></i> Mon Setup
                 </div>
-                <h2 class="text-4xl md:text-6xl font-black italic uppercase leading-tight">Canon R100 <br>+ RF 75-200mm</h2>
-                <div class="w-16 h-1 bg-zinc-700"></div>
-                <p class="text-zinc-400 italic border-l-2 border-zinc-800 pl-6 text-lg md:text-xl font-light">
-                    "Un matériel agile pour une réactivité maximale sur le bord du terrain. La précision du R100 couplée au piqué du 75-200mm me permet d'isoler chaque émotion."
+                <h2 class="text-4xl md:text-5xl font-black italic uppercase leading-tight">Canon R100 <br>+ RF 75-200mm</h2>
+                <p class="text-zinc-400 italic border-l-2 border-zinc-800 pl-6 text-lg">
+                    "Un matériel agile pour une réactivité maximale sur le bord du terrain. Le Canon R100 combiné au piqué du 75-200mm me permet de saisir l'instant précis."
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 relative z-10 bg-black/40">
-        <div class="max-w-5xl mx-auto bg-zinc-900 border border-zinc-800 p-8 md:p-16">
+    <section id="contact" class="py-24 px-6 bg-black/40 relative z-10">
+        <div class="max-w-5xl mx-auto bg-zinc-900 border border-zinc-800 p-8 md:p-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                
                 <div>
-                    <h2 class="text-4xl font-black italic uppercase mb-6 tracking-tighter">Travaillons <br>Ensemble</h2>
-                    <p class="text-zinc-500 mb-8 text-sm italic">Disponible pour reportages clubs et séances individuelles à Tours.</p>
+                    <h2 class="text-4xl font-black italic uppercase mb-6 tracking-tighter">Contact</h2>
+                    <p class="text-zinc-500 mb-8 text-sm italic">Réponse sous 24h pour vos reportages clubs et séances à Tours.</p>
                     <div class="space-y-4">
-                        <div class="flex items-center gap-3 text-zinc-400 italic">
+                        <div class="flex items-center gap-3 text-zinc-400 italic italic">
                             <i data-lucide="instagram" class="size-5"></i> @nvoo_visual
                         </div>
                         <div class="flex items-center gap-3 text-zinc-400 italic">
                             <i data-lucide="video" class="size-5"></i> @nvoo_visual
-                        </div>
-                        <div class="flex items-center gap-3 text-zinc-400 italic">
-                            <i data-lucide="map-pin" class="size-5"></i> Tours et alentours
                         </div>
                     </div>
                 </div>
@@ -165,16 +152,15 @@
                     <input type="text" name="nom" placeholder="Ton nom" required class="w-full bg-black border border-zinc-800 p-4 text-sm outline-none focus:border-white transition">
                     <input type="email" name="email" placeholder="Ton email" required class="w-full bg-black border border-zinc-800 p-4 text-sm outline-none focus:border-white transition">
                     <textarea name="message" placeholder="Détails de ta demande..." rows="4" required class="w-full bg-black border border-zinc-800 p-4 text-sm outline-none focus:border-white transition"></textarea>
-                    <button type="submit" class="w-full bg-white text-black font-black uppercase italic py-5 hover:bg-zinc-200 transition-all tracking-widest text-xs">
+                    <button type="submit" class="w-full bg-white text-black font-black uppercase italic py-4 hover:bg-zinc-200 transition-all tracking-widest text-xs">
                         Envoyer le message
                     </button>
                 </form>
-
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-zinc-700 text-[10px] font-bold tracking-[0.4em] uppercase relative z-10">
+    <footer class="py-12 text-center text-zinc-700 text-[10px] font-bold tracking-[0.4em] uppercase">
         Nvoo'visual • Tours • 2026
     </footer>
 
